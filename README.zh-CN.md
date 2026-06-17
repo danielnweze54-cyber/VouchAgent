@@ -1,6 +1,10 @@
 # Vouch —— Casper Agent 经济的信任层
 
-[English](README.md) · **简体中文**
+<div align="center">
+
+### [English](README.md) · [ 简体中文 ]
+
+</div>
 
 > Casper 上第一个为 AI agent 服务的去中心化**信任层** —— 机器经济的**「征信局 + 担保托管 + 法院」**。在你信任（甚至付钱给）一个素未谋面的 agent 之前，Vouch 让你查它的链上信誉、通过**质押托管**雇佣它、并由**多智能体验证网络**裁决结果 —— 诚实有奖，说谎被罚没。
 >

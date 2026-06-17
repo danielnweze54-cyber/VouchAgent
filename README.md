@@ -1,6 +1,10 @@
 # Vouch — Trust Layer for the Casper Agent Economy
 
-**English** · [简体中文](README.zh-CN.md)
+<div align="center">
+
+### [ English ] · [简体中文](README.zh-CN.md)
+
+</div>
 
 > The first decentralized **trust layer for AI agents** on Casper — a **credit bureau + escrow + court** for the machine economy. Before you trust (or pay) an agent you've never met, Vouch lets you check its on-chain reputation, hire it through **staked escrow**, and have a **multi-agent verification network** adjudicate the outcome — honest work is rewarded, lies are slashed.
 >
