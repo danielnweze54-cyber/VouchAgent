@@ -600,6 +600,7 @@ dependencies = [
  "odra",
  "odra-build",
  "odra-casper-livenet-env",
+ "odra-modules",
  "odra-test",
 ]
 
@@ -2000,6 +2001,17 @@ dependencies = [
  "quote",
  "syn 2.0.118",
  "syn_derive",
+]
+
+[[package]]
+name = "odra-modules"
+version = "2.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "64ea5b0e8d4c36287a86a615db423f7ccaa2f870a11ce3bc6602986cfe23f912"
+dependencies = [
+ "base64 0.22.1",
+ "odra",
+ "odra-build",
 ]
 
 [[package]]

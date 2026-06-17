@@ -1,2 +1,8 @@
 [[contracts]]
 fqn = "contract::RwaOracle"
+
+[[contracts]]
+fqn = "contract::escrow_poc::EscrowPoc"
+
+[[contracts]]
+fqn = "contract::trust_registry::TrustRegistry"

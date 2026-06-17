@@ -4,3 +4,5 @@
 extern crate alloc;
 
 pub mod rwa_oracle;
+pub mod escrow_poc;
+pub mod trust_registry;
