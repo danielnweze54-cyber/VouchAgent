@@ -1,0 +1,10 @@
+{
+  "name": "vouch-dapp-static",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vouch dApp 静态前端 + Vercel serverless（api/rpc.js 代理、api/faucet.js 领币）",
+  "dependencies": {
+    "casper-js-sdk": "5.0.12"
+  }
+}

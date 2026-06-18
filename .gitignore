@@ -19,6 +19,9 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# === Node（Vercel 本地装的依赖，线上自动 npm install）===
+node_modules/
+
 # === 运行时产物 ===
 web/oracle_state.json
 .playwright-mcp/

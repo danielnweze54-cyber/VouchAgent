@@ -1540,6 +1540,7 @@
 
       <div class="nav-tools">
         <button class="wallet-btn" id="wallet-button" type="button">Connect Wallet</button>
+        <button class="wallet-btn" id="faucet-button" type="button" title="连接钱包后免费领取体验测试币（平台代发）">🪙 Faucet</button>
         <div class="lang-switch" aria-label="Language switch">
           <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">EN</button>
           <button class="lang-btn" type="button" data-lang="zh" aria-pressed="false">CN</button>
@@ -2267,6 +2268,8 @@
       walletButton.textContent = (walletConnected && a)
         ? "● " + a.slice(0, 6) + "…" + a.slice(-4)
         : t("Connect Wallet");
+      const faucetButton = document.getElementById("faucet-button");
+      if (faucetButton) faucetButton.textContent = currentLang === "zh" ? "🪙 领测试币" : "🪙 Faucet";
     };
 
     const applyLanguage = (lang) => {
@@ -2540,6 +2543,30 @@
         walletConnected = false; updateWalletButton();
         alert((e && e.message) || String(e));
       }
+    });
+
+    document.getElementById("faucet-button").addEventListener("click", async () => {
+      if (!Vouch.isConnected()) { alert(currentLang === "zh" ? "请先连接钱包再领币" : "Connect wallet first"); return; }
+      const btn = document.getElementById("faucet-button");
+      const p = openProgress(
+        currentLang === "zh" ? "领取测试币" : "Claim test tokens",
+        currentLang === "zh"
+          ? ["校验地址", "发放 10 CSPR（用于 gas）", "发放 500 X402（体验代币）", "完成 · 可开始体验"]
+          : ["Validate address", "Send 10 CSPR (gas)", "Send 500 X402 (tokens)", "Done · start exploring"],
+        currentLang === "zh" ? "平台代发 · Casper Testnet" : "Sponsored · Casper Testnet");
+      btn.disabled = true;
+      try {
+        p.step(0); p.step(1);
+        const r = await Vouch.claimFaucet();
+        p.step(2); p.step(3);
+        p.success(r.x402 && r.x402.hash);
+        const txBox = document.getElementById("payment-tx");
+        if (txBox && r.cspr && r.cspr.hash) {
+          txBox.innerHTML += `<br>${currentLang === "zh" ? "CSPR 交易：" : "CSPR tx:"} <a class="tx-link" href="${txBase}${r.cspr.hash}" target="_blank" rel="noreferrer">${r.cspr.hash.slice(0, 12)}…${r.cspr.hash.slice(-6)}</a>`;
+        }
+      } catch (e) {
+        p.fail((e && e.message) || String(e));
+      } finally { btn.disabled = false; }
     });
 
     document.querySelector(".mobile-toggle").addEventListener("click", () => {

@@ -161,6 +161,21 @@ export async function payQuery(amountX402 = 1) {
   return hashOf(await signAndSend(deploy));
 }
 
+/** 访客领测试币：调 serverless /api/faucet（服务端用 faucet 私钥发 CSPR gas + X402 体验代币）。
+ *  无需访客自己有任何测试币，连钱包即可领。返回 { ok, cspr:{hash,url}, x402:{hash,url} }。 */
+export async function claimFaucet(pubkey) {
+  const pk = pubkey || pkHex;
+  if (!pk) throw new Error("请先连接钱包");
+  const r = await fetch("/api/faucet", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ pubkey: pk }),
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok || !data.ok) throw new Error(data.error || ("领取失败（HTTP " + r.status + "）"));
+  return data;
+}
+
 // ---------- 只读：前端直读 Odra state dictionary（实时、免后端/cargo）----------
 // Odra 2.x 把状态存在 "state" dictionary，item key = blake2bHex(u32_be(字段index) + mapping_key_bytes)。
 // 字段 index = struct 声明顺序 + 1（Odra 占用 index 0）：agents=6(Mapping)、agent_count=7(Var)。
