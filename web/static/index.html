@@ -925,6 +925,62 @@
       line-height: 1.55;
     }
 
+    .vs-table {
+      display: grid;
+      gap: 10px;
+    }
+
+    .vs-row {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .vs-dim {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .vs-bad {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .vs-good {
+      color: var(--mint);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .vs-row.vs-head {
+      background: var(--panel-strong);
+      border-color: var(--line-strong);
+    }
+
+    .vs-head .vs-dim {
+      color: var(--soft);
+    }
+
+    .vs-head .vs-bad,
+    .vs-head .vs-good {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .vs-head .vs-bad {
+      color: var(--red);
+    }
+
     .final-cta {
       position: relative;
       overflow: hidden;
@@ -1048,7 +1104,8 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .proof-row {
+      .proof-row,
+      .vs-row {
         grid-template-columns: 1fr;
       }
     }
@@ -1334,41 +1391,41 @@
       </div>
     </section>
 
-<section class="section shell">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">Why Vouch</div>
-      <h2>Beyond payments.</h2>
-    </div>
-  </div>
+    <section class="section shell">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Why Vouch</div>
+          <h2>Beyond payments.</h2>
+        </div>
+      </div>
 
-  <div class="proof-table">
-    <div class="proof-row">
-      <strong>Payments Only</strong>
-      <code>Transfers money</code>
-      <strong>Vouch</strong>
-    </div>
+      <div class="vs-table">
+        <div class="vs-row vs-head">
+          <span class="vs-dim">Dimension</span>
+          <span class="vs-bad">Payments Only</span>
+          <span class="vs-good">Vouch</span>
+        </div>
 
-    <div class="proof-row">
-      <strong>No reputation</strong>
-      <code>Unknown counterparties</code>
-      <strong>On-chain trust score</strong>
-    </div>
+        <div class="vs-row">
+          <span class="vs-dim">Reputation</span>
+          <span class="vs-bad">None — unknown counterparties</span>
+          <span class="vs-good">On-chain trust score</span>
+        </div>
 
-    <div class="proof-row">
-      <strong>No disputes</strong>
-      <code>Manual resolution</code>
-      <strong>Agent Court</strong>
-    </div>
+        <div class="vs-row">
+          <span class="vs-dim">Disputes</span>
+          <span class="vs-bad">Manual resolution</span>
+          <span class="vs-good">Agent Court</span>
+        </div>
 
-    <div class="proof-row">
-      <strong>No penalties</strong>
-      <code>No accountability</code>
-      <strong>Slashing & refunds</strong>
-    </div>
-  </div>
-</section>
-    
+        <div class="vs-row">
+          <span class="vs-dim">Penalties</span>
+          <span class="vs-bad">No accountability</span>
+          <span class="vs-good">Slashing &amp; refunds</span>
+        </div>
+      </div>
+    </section>
+
     <section class="proof-strip shell" aria-label="Project proof highlights">
       <article class="proof-item">
         <strong>2 systems</strong>
