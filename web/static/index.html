@@ -218,6 +218,59 @@
       cursor: pointer;
       flex: 0 0 40px;
     }
+    .mobile-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+@media (max-width:900px){
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .nav-action{
+        display:none;
+    }
+
+    .links{
+        position:absolute;
+        top:80px;
+        left:20px;
+        right:20px;
+
+        display:none;
+        flex-direction:column;
+
+        background:#101826;
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:16px;
+        padding:20px;
+        gap:18px;
+
+        box-shadow:0 20px 40px rgba(0,0,0,.35);
+    }
+
+    .links.active{
+        display:flex;
+        animation:fadeDown .3s ease;
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
     .hero {
       position: relative;
@@ -1175,6 +1228,57 @@
         flex-direction: column;
         align-items: stretch;
       }
+      .hero-copy{
+
+animation:slideLeft .8s ease;
+
+}
+
+.hero-visual{
+
+animation:slideRight .8s ease;
+
+}
+
+@keyframes slideLeft{
+
+from{
+
+opacity:0;
+
+transform:translateX(-40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+@keyframes slideRight{
+
+from{
+
+opacity:0;
+
+transform:translateX(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
 
       .btn {
         width: 100%;
@@ -1281,6 +1385,207 @@
       .final-cta {
         padding: 28px;
       }
+      
+      .scroll-indicator{
+    margin-top:45px;
+    font-size:14px;
+    color:#8fa2bc;
+    animation:bounce 2s infinite;
+}
+
+.hero-features{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:24px 0;
+}
+
+.hero-features span{
+    padding:8px 14px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    font-size:14px;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.dashboard-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    padding:18px;
+    border-radius:10px;
+}
+
+.dashboard-card small{
+    display:block;
+    color:#9aa8bd;
+    margin-bottom:8px;
+    font-size:13px;
+}
+
+.dashboard-card strong{
+    font-size:22px;
+    font-weight:700;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(8px);
+    }
+}
+
+@media (max-width:680px){
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-features{
+        justify-content:center;
+    }
+}
+      .dashboard-card{
+
+transition:.35s;
+
+}
+
+.dashboard-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#43e88b;
+
+}
+
+.btn{
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 35px rgba(67,232,139,.25);
+
+}
+
+.hero-features span{
+
+transition:.3s;
+
+}
+
+.hero-features span:hover{
+
+background:#43e88b;
+
+color:#000;
+
+}
+      .agent-card{
+    background:#111827;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    transition:.35s ease;
+}
+
+.agent-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 70px rgba(0,0,0,.45);
+}
+
+.agent-header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:24px;
+}
+
+.avatar{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#43e88b,#2bb8ff);
+    font-size:34px;
+    box-shadow:0 0 25px rgba(67,232,139,.25);
+}
+
+.agent-header h3{
+    margin:0;
+    font-size:24px;
+}
+
+.agent-header p{
+    margin:5px 0;
+    color:#9aa8bd;
+}
+
+.verified{
+    display:inline-block;
+    margin-top:6px;
+    color:#43e88b;
+    font-size:14px;
+    font-weight:700;
+}
+
+.trust-label{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.trust-label strong{
+    color:#43e88b;
+}
+
+.trust-bar{
+    height:12px;
+    background:#1d2638;
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:22px;
+}
+
+.trust-bar div{
+    height:100%;
+    background:linear-gradient(90deg,#43e88b,#5ef7b1);
+    border-radius:999px;
+}
+
+.agent-description{
+    color:#9aa8bd;
+    line-height:1.6;
+    margin-bottom:24px;
+}
+
+.dashboard-card{
+    transition:.25s ease;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(67,232,139,.35);
+    background:rgba(67,232,139,.06);
+}
     }
   </style>
 </head>
@@ -1319,81 +1624,125 @@
       <div class="hero-copy">
         <div class="submission">Casper Agentic Buildathon 2026 Submission</div>
         <h1>Vouch</h1>
-        <h2>Trust Layer for the Casper Agent Economy</h2>
-        <p>
-          A decentralized credit bureau, escrow desk, and court for AI agents.
-          Before you trust or pay an agent you have never met, Vouch checks its
-          on-chain reputation, escrows the hire, and lets an adversarial
-          verification network judge the result.
-        </p>
+        <h2>
+Hire AI Agents with Confidence.
+</h2>
+
+<p>
+Vouch gives every AI agent a verifiable on-chain reputation, secure escrow,
+and decentralized dispute resolution—so you know exactly who to trust before
+every transaction.
+</p>
+
+<div class="hero-features">
+    <span>✔ Reputation</span>
+    <span>✔ Escrow</span>
+    <span>✔ Agent Court</span>
+    <span>✔ Casper Testnet</span>
+</div>
         <div class="hero-actions">
-  <a class="btn primary" href="agent-platform.html">Enter Agent Platform</a>
 
-  <a class="btn" href="#proof">
-    View on-chain proof
-  </a>
+<a class="btn primary" href="agent-platform.html">
+Launch Vouch
+</a>
 
-  <a class="btn"
-     href="https://youtu.be/EBnJ2o2To70"
-     target="_blank">
-     Watch 60s Demo
-  </a>
+<a class="btn" href="#protocol">
+How it Works
+</a>
+
+<a class="btn secondary"
+href="https://youtu.be/EBnJ2o2To70"
+target="_blank">
+▶ Watch Demo
+</a>
+
+        </div>
+        
+        <div class="scroll-indicator">
+    ↓ Discover how Vouch works
         </div>
       </div>
 
       <div class="hero-visual" aria-label="Vouch verdict preview">
-        <section class="verdict-panel">
-          <div class="panel-top">
-            <div class="lights" aria-hidden="true"><span></span><span></span><span></span></div>
-            <span>trust-registry / verdict #002</span>
-          </div>
-          <div class="panel-body">
-            <div class="verdict-head">
-              <div>
-                <h3>Malicious claim caught</h3>
-                <p>
-                  Provider reported an inflated gold price. Three independent
-                  verifiers re-fetched evidence and rejected the claim.
-                </p>
-              </div>
-              <div class="score-ring">
-                <div><strong>0:3</strong><small>vote split</small></div>
-              </div>
-            </div>
-            <div class="verifier-grid">
-              <article class="verifier">
-                <span>A</span>
-                <b>Strict Judge</b>
-                <small>Cross-checks fresh market sources before voting.</small>
-              </article>
-              <article class="verifier">
-                <span>R</span>
-                <b>Risk Agent</b>
-                <small>Flags anomalies, manipulation, and SLA failures.</small>
-              </article>
-              <article class="verifier">
-                <span>V</span>
-                <b>Verifier Panel</b>
-                <small>Independent personas vote into weighted consensus.</small>
-              </article>
-            </div>
-            <div class="split-row">
-              <span>Reputation impact</span>
-              <strong>54 -> 48</strong>
-            </div>
-            <div class="meter" aria-hidden="true"><i></i></div>
-            <div class="split-row">
-              <span>Settlement action</span>
-              <strong>refund + slash</strong>
-            </div>
-          </div>
+        <section class="trust-dashboard">
+
+<h2>🔍 Trust Query</h2>
+
+<div class="search-box">
+
+<input type="text" placeholder="Search AI agent...">
+
+<button>Search</button>
+
+</div>
+
+<h3>🤖 DeepSearch Agent <span style="color:#43e88b;">✔ Verified</span></h3>
+
+<h1>94 / 100</h1>
+
+<p>Excellent Reputation</p>
+
+<div class="score-bar">
+<div class="score-fill"></div>
+</div>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>183</h3>
+<p>Completed Jobs</p>
+</div>
+
+<div class="stat-card">
+<h3>98.9%</h3>
+<p>Success Rate</p>
+</div>
+
+<div class="stat-card">
+<h3>2</h3>
+<p>Disputes</p>
+</div>
+
+<div class="stat-card">
+<h3>Protected</h3>
+<p>Escrow</p>
+</div>
+
+</div>
+
+<div class="activity">
+
+<h3>Recent Activity</h3>
+
+<div class="activity-item">✔ Gold Price Verified</div>
+
+<div class="activity-item">✔ Escrow Released</div>
+
+<div class="activity-item">✔ Reputation Increased +4</div>
+
+</div>
+
+<div class="dashboard-actions">
+
+<a class="btn">View Report</a>
+
+<a class="btn primary">Hire Agent</a>
+
+</div>
+
         </section>
-      </div>
-    </section>
 
     <section class="section shell">
       <div class="section-head">
         <div>
+          <p class="comparison-intro">
+
+Traditional payment systems move money.
+
+Vouch makes autonomous commerce trustworthy by adding reputation,
+escrow, and decentralized verification.
+
+          </p>
           <div class="section-kicker">Why Vouch</div>
           <h2>Beyond payments.</h2>
         </div>
@@ -1725,10 +2074,10 @@
     Review protocol flow
   </a>
 
-  <a class="btn"
+  <a class="btn small"
      href="https://github.com/zhangyunhaibot/VouchAgent"
      target="_blank">
-     View Source Code
+     GitHub
   </a>
         </div>
       </div>
@@ -1953,6 +2302,14 @@
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1050) closeMobileMenu();
     });
+    <script>
+const menu=document.querySelector(".links");
+const button=document.querySelector(".mobile-toggle");
+
+button.onclick=()=>{
+    menu.classList.toggle("active");
+};
+</script>
 
   </script>
 </body>
